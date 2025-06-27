@@ -1,0 +1,241 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333333;
+    background: linear-gradient(135deg, #ffffff 0%, #fafdff 100%);
+}
+
+h1 {
+    text-align: center; /* 居中 */
+    color: #2c3e50;
+    font-size: 2.0em;
+    font-weight: 600;
+}
+.content {
+    margin: 0 20%; /* 左右边距 */
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+@media (max-width: 800px) {
+    .content {
+        margin: 0 5%;
+    }
+    .details img {
+        width: 100%;
+        max-width: none;
+    }
+    nav {
+        position: relative;
+        transform: translateY(0);
+    }
+    nav.show {
+        display: block;
+    }
+    table {
+        font-size: 12px; /* 在移动设备上稍微减小字体大小 */
+    }
+}
+
+.details {
+    margin-top: 20px; /* 上边距 */
+}
+.details img {
+    width: 48%; /* 每个图片占据48%的宽度，留出间距 */
+    height: auto; /* 高度自适应 */
+    margin: 1%; /* 图片间距 */
+}
+.details-container {
+    display: flex; /* 使用弹性布局 */
+    justify-content: space-between; /* 左右分布 */
+    flex-wrap: nowrap; /* 不换行，保持并排显示 */
+    overflow-x: auto; /* 允许横向滚动 */
+}
+
+.schedule {
+    margin-top: 20px; /* 上边距 */
+}
+.day {
+    cursor: pointer;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex; /* 使用弹性布局 */
+    align-items: center; /* 垂直居中 */
+}
+
+.day .icon {
+    margin-right: 10px; /* 图标与文本之间的间距 */
+    font-size: 16px; /* 图标大小 */
+}
+
+.details-content {
+    margin-left: 5px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+}
+
+.details-content.show {
+    margin-left: 5px;
+    max-height: 1000px; /* 设置一个足够大的值，根据实际内容调整 */
+    transition: max-height 0.5s ease-in;
+}
+.location-container {
+    display: flex; /* 使用弹性布局 */
+    justify-content: space-between; /* 左右分布 */
+    margin-top: 20px; /* 上边距 */
+}
+.location {
+    width: 45%; /* 每个位置占据45%的宽度 */
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.location img {
+    border-radius: 4px;
+}
+.participants {
+    margin-top: 20px; /* 上边距 */
+}
+.participants h2 {
+    text-align: center; /* 居中 */
+}
+.participants-list {
+    display: flex; /* 使用弹性布局 */
+    flex-wrap: wrap; /* 允许换行 */
+    justify-content: space-between; /* 左右分布 */
+    padding: 0; /* 去掉内边距 */
+    list-style-type: none; /* 去掉列表样式 */
+}
+.participants-list li {
+    width: 45%; /* 每个列表项占据45%的宽度 */
+    margin: 5px 0; /* 上下间距 */
+}
+nav {
+    background-color: #f8f8f8; /* 背景色 */
+    padding: 10px 20px; /* 内边距 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    position: fixed; /* 固定在顶部 */
+    width: 100%; /* 宽度100% */
+    top: 0; /* 顶部对齐 */
+    z-index: 1000; /* 确保在其他元素之上 */
+    transform: translateY(-100%); /* 初始位置隐藏 */
+    transition: transform 0.3s ease; /* 动效 */
+    overflow: hidden;
+}
+
+nav.show {
+    transform: translateY(0); /* 显示导航栏 */
+}
+nav ul {
+    list-style-type: none; /* 去掉列表样式 */
+    display: flex; /* 使用弹性布局 */
+    justify-content: space-around; /* 使用 space-around 使项之间的间距更均匀 */
+    padding: 0; /* 去掉内边距 */
+    margin: 0; /* 去掉外边距 */
+    flex-wrap: wrap; /* 允许换行 */
+}
+
+nav ul li {
+    margin: 0 15px; /* 左右间距 */
+}
+nav ul li a {
+    text-decoration: none; /* 去掉下划线 */
+    color: #333333; /* 字体颜色 */
+    font-weight: bold; /* 加粗字体 */
+    transition: color 0.3s; /* 过渡效果 */
+}
+nav ul li a:hover {
+    color: #2c3e50; /* 悬停时的颜色 */
+}
+
+.image-slider {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slider-container img {
+    width: 100%;
+    aspect-ratio: 16 / 9;  /* 设置16:9的长宽比 */
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* 鼠标悬停时暂停动画 */
+.slider-container:hover {
+    animation-play-state: paused;
+}
+
+.location img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0px 0;
+}
+
+.time-cell {
+    white-space: nowrap;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+table th {
+    background: #f8f9fa;
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.icon.rotated {
+    transform: rotate(90deg);
+}
+
+.no-wrap {
+            white-space: nowrap;
+        }
